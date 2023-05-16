@@ -2,6 +2,7 @@ package com.job_portal_application.service;
 
 import java.time.LocalDateTime;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,15 +25,14 @@ public class JobService {
 	@Autowired
 	private EmployerDAO employerDAO;
 	
+	@Autowired
+	private ModelMapper modelMapper;
+	
 	
 	public ResponseEntity<responseStructure<Job>> addJob(JobDTO jobDto,long employerId){
 	Employer employer=	employerDAO.getEmployerById(employerId);
 	if(employer!=null) {
-		Job job=new Job();
-		job.setJobTitle(jobDto.getJobTitle());
-		job.setJobDescription(jobDto.getJobDescription());
-		job.setJobCompany(jobDto.getJobCompany());
-		job.setJobSalary(jobDto.getJobSalary());
+		Job job=this.modelMapper.map(jobDto, Job.class);
 		job.setJobCreateDateTime(LocalDateTime.now());
 		job.setEmployer(employer);
 		job=jobDAO.addJob(job);

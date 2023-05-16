@@ -10,6 +10,5 @@ public class ApplicantDTO {
 	private long applicantId;
 	private String applicantName;
 	private String applicantEmail;
-	private String applicantPassword;
 	private long applicantPhoneNumber;
 }

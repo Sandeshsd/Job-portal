@@ -9,7 +9,7 @@ public class ResumeDTO {
 
 	private long resumeId;
 	private String summary;
-	private String Qulification;
+	private String qulification;
 	
 	private String socialProfile1;
 	private String socialProfile2;
