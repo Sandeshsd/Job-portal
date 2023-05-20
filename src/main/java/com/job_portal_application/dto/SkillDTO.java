@@ -8,5 +8,5 @@ import lombok.Setter;
 public class SkillDTO {
 
 	private long skillId;
-	private String SkillName;
+	private String skillName;
 }

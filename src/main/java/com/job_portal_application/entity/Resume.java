@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,12 +31,14 @@ public class Resume {
 	private String certification;
 	
 	@OneToOne(mappedBy = "resume")
+	@JsonIgnore
 	private Applicant applicant;
 	
 	@OneToMany
 	private List<Project> projects;
 	
 	@OneToMany
+	@JsonIgnore
 	private List<Skill> skills;
 	
 	

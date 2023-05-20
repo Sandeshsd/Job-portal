@@ -11,6 +11,7 @@ import com.job_portal_application.dao.ResumeDAO;
 import com.job_portal_application.dto.ResumeDTO;
 import com.job_portal_application.entity.Applicant;
 import com.job_portal_application.entity.Resume;
+import com.job_portal_application.exception.ApplicantNotfoundByIdException;
 import com.job_portal_application.util.responseStructure;
 
 
@@ -42,8 +43,7 @@ public class ResumeService {
 		responseStructure.setData(resume);
 		return new ResponseEntity<responseStructure<Resume>>(responseStructure,HttpStatus.CREATED);
 		}else {
-//			return new ApplicationNotFoundByIdException("failed to add Resume!!");
-			return null;
+			throw new ApplicantNotfoundByIdException("failed to add Resume!!");
 		}
 	}
 }

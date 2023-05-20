@@ -29,6 +29,7 @@ public class Applicant {
 	private long applicantPhoneNumber;
 	
 	@OneToMany(mappedBy = "applicant")
+	@JsonIgnore
 	private List<JobApplication> jobApplications;
 	
 	@OneToOne

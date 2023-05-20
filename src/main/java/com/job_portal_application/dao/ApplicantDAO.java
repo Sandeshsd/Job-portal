@@ -26,4 +26,8 @@ public class ApplicantDAO {
 		return optional.get();
 		}
 	}
+
+	public void deleteApplicant(Applicant applicant) {
+		applicantRepo.delete(applicant);
+	}
 }

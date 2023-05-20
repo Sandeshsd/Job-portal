@@ -15,6 +15,8 @@ public class ResumeDAO {
 	public Resume saveResume(Resume resume) {
 		return resumeRepo.save(resume);
 	}
-	
+	public void deleteResume(Resume resume) {
+		resumeRepo.delete(resume);
+	}
 	
 }
